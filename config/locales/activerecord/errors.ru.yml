@@ -1,0 +1,4 @@
+ru:
+  activerecord:
+    errors:
+      models:
