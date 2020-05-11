@@ -12,6 +12,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require([:name, :email, :password])
+    params.require(%i[name email password])
   end
 end
