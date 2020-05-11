@@ -8,6 +8,7 @@ ru:
           attributes:
             name:
               blank: 'Укажите ваше имя'
+              invalid: 'Укажите имя, используя буквы, цифры или символ подчёркивания'
             email:
               blank: 'Укажите email'
             password:
