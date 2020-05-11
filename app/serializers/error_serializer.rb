@@ -1,10 +1,11 @@
 module ErrorSerializer
   extend self
 
-  def from_message(error_messages, meta: {})
+  def from_messages(error_messages, meta: {})
     error_messages = Array.wrap(error_messages)
     { errors: build_errors(error_messages, meta) }
   end
+  alias from_message from_messages
 
   def from_model(model)
     { errors: build_model_errors(model.errors) }

@@ -1,7 +1,7 @@
 RSpec.describe ErrorSerializer do
   subject { described_class }
 
-  describe 'from_message' do
+  describe 'from_messages' do
     context 'with single error message' do
       let(:message) { 'Error message' }
 
@@ -18,7 +18,7 @@ RSpec.describe ErrorSerializer do
       let(:messages) { ['Error message 1', 'Error message 2'] }
 
       it 'returns errors representation' do
-        expect(subject.from_message(messages)).to eq(
+        expect(subject.from_messages(messages)).to eq(
           errors: [
             { detail: messages[0] },
             { detail: messages[1] }

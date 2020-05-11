@@ -1,5 +1,4 @@
 module BasicService
-
   module ClassMethods
     def call(*args)
       new(*args).call
@@ -12,9 +11,30 @@ module BasicService
     base.extend ClassMethods
   end
 
+  attr_reader :errors
+
+  def initialize(*args)
+    super(*args)
+    @errors = []
+  end
+
   def call
     super
     self
   end
 
+  def success?
+    !failure?
+  end
+
+  def failure?
+    @errors.any?
+  end
+
+  private
+
+  def fail!(messages)
+    @errors += Array(messages)
+    self
+  end
 end

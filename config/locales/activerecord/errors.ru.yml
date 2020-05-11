@@ -1,4 +1,14 @@
 ru:
+  errors:
+    format: "%{message}"
   activerecord:
     errors:
       models:
+        user:
+          attributes:
+            name:
+              blank: 'Укажите ваше имя'
+            email:
+              blank: 'Укажите email'
+            password:
+              blank: 'Укажите пароль'
