@@ -13,7 +13,7 @@ module ApiErrors
       error_response(I18n.t(:not_found, scope: 'api.errors'), :not_found)
     when ActiveRecord::RecordNotUnique
       error_response(I18n.t(:not_unique, scope: 'api.errors'), :unprocessable_entity)
-    when ActionController::ParameterMissing
+    when ActionController::ParameterMissing, KeyError
       error_response(I18n.t(:missing_parameters, scope: 'api.errors'), :unprocessable_entity)
     else
       raise

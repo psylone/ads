@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
-  include JwtEncoder
+  skip_before_action :auth_user, only: %i[create]
 
   def create
     result = UserSessions::CreateService.call(*session_params)
 
     if result.success?
-      token = encode_jwt(result.session.uuid)
+      token = JwtEncoder.encode(uuid: result.session.uuid)
       meta = { token: token }
 
       render json: { meta: meta }, status: :created
