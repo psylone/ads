@@ -14,7 +14,9 @@ module Ads
 
     def call
       @ad = @user.ads.new(@ad.to_h)
-      fail!(@ad.errors) unless @ad.save
+      return fail!(@ad.errors) unless @ad.save
+
+      GeocodingJob.perform_later(@ad)
     end
   end
 end

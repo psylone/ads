@@ -22,6 +22,13 @@ RSpec.describe Ads::CreateService do
 
       expect(result.ad).to be_kind_of(Ad)
     end
+
+    it 'enqueues geocoding job' do
+      ActiveJob::Base.queue_adapter = :test
+      subject.call(ad: ad_params, user: user)
+
+      expect(Ads::GeocodingJob).to have_been_enqueued.with(kind_of(Ad))
+    end
   end
 
   context 'invalid parameters' do
@@ -42,6 +49,13 @@ RSpec.describe Ads::CreateService do
       result = subject.call(ad: ad_params, user: user)
 
       expect(result.ad).to be_kind_of(Ad)
+    end
+
+    it 'does not enqueue geocoding job' do
+      ActiveJob::Base.queue_adapter = :test
+      subject.call(ad: ad_params, user: user)
+
+      expect(Ads::GeocodingJob).not_to have_been_enqueued
     end
   end
 end
