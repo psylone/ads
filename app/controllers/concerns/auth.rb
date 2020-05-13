@@ -1,7 +1,6 @@
 module Auth
   extend ActiveSupport::Concern
 
-
   AUTH_TOKEN = %r{\ABearer (?<token>.+)\z}
 
   included do
