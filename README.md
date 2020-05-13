@@ -1,24 +1,37 @@
-# README
+# Ads
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Исходное приложение для курса Ruby Microservices.
 
-Things you may want to cover:
+# Зависимости
 
-* Ruby version
+- Ruby `2.6.6`
+- Bundler `2.1.4`
+- Rails `6.0+`
+- Puma `4.3+`
+- PostgreSQL `9.3+`
 
-* System dependencies
+# Установка и запуск приложения
 
-* Configuration
+1. Склонируйте репозиторий:
 
-* Database creation
+```
+git clone git@github.com:psylone/ads.git && cd ads
+```
 
-* Database initialization
+2. Установите зависимости и создайте базу данных:
 
-* How to run the test suite
+```
+bin/setup
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Запустите приложение:
 
-* Deployment instructions
+```
+bin/rails s
+```
 
-* ...
+# Запуск тестов
+
+```
+bin/rspec
+```
