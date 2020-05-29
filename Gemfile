@@ -8,7 +8,7 @@ gem 'rails', '~> 6.0.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 
 gem 'kaminari', '~> 1.2.1'
 gem 'fast_jsonapi', '~> 1.5'
